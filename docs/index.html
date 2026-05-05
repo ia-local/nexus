@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVNU | Urban Nexus - OS 1984</title>
+    <link rel="stylesheet" href="city_style.css">
+</head>
+<body class="city-builder-ui">
+
+    <!-- MENU BAR SYSTEME (Façon Mac OS 1) -->
+    <header class="sys-menu-bar">
+        <div class="sys-menu-left">
+            <span class="apple-icon"></span>
+            <span class="menu-item bold">CVNU_OS</span>
+            <span class="menu-item">Fichier</span>
+            <span class="menu-item">Édition</span>
+            <span class="menu-item">Zonage</span>
+        </div>
+        <div class="sys-menu-right">
+            <span class="status-item" id="user-name">GOUVERNEUR CAUCHON</span>
+            <span class="status-item" id="city-level">LVL 01</span>
+            <span class="status-item timer" id="cycle-day">J1 / 28</span>
+        </div>
+    </header>
+
+    <!-- BUREAU DYNAMIQUE (100% de l'espace restant) -->
+    <main class="desktop-grid">
+        
+        <!-- FENÊTRE GAUCHE : OUTILS -->
+        <aside class="mac-window tools-window">
+            <div class="mac-title-bar">
+                <div class="close-box"></div>
+                <div class="stripes"></div>
+                <span class="title-text">DICTIONNAIRE ASCII</span>
+                <div class="stripes"></div>
+            </div>
+            <div class="window-content">
+                <div class="build-grid">
+                    <button class="build-item" onclick="selectBuild('house')">
+                        <span class="glyph">🏘️</span>
+                        <span class="name">RÉSIDENCE</span>
+                    </button>
+                    <button class="build-item" onclick="selectBuild('bank')">
+                        <span class="glyph">🏦</span>
+                        <span class="name">TRÉSORERIE</span>
+                    </button>
+                    <button class="build-item" onclick="selectBuild('factory')">
+                        <span class="glyph">🏭</span>
+                        <span class="name">INDUSTRIE</span>
+                    </button>
+                    <button class="build-item" onclick="selectBuild('road')">
+                        <span class="glyph">═</span>
+                        <span class="name">VOIRIE</span>
+                    </button>
+                    <button class="build-item" onclick="TerminalModal.open()" style="grid-column: 1 / span 2; background: #fff; color: #000;">
+                        <span class="glyph">📡</span>
+                        <span class="name">CONTACTER LE CONTINENT</span>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- FENÊTRE CENTRALE : MAP (Prend tout l'espace) -->
+<section class="mac-window map-window">
+            <div class="mac-title-bar">
+                <div class="close-box"></div>
+                <div class="stripes"></div>
+                <span class="title-text">BAVENT_NEXUS_MAP.DRW</span>
+                <div class="stripes"></div>
+            </div>
+            <div class="window-content map-container">
+                <!-- UTILISEZ LA BALISE <pre> ICI -->
+                <pre id="ascii-canvas" class="ascii-grid">
+                    [ CHARGEMENT DU GEO_ENGINE... ]
+                </pre>
+            </div>
+        </section>
+
+        <!-- FENÊTRE DROITE : AUDIT FISCAL -->
+        <aside class="mac-window stats-window">
+            <div class="mac-title-bar">
+                <div class="close-box"></div>
+                <div class="stripes"></div>
+                <span class="title-text">AUDIT LÉGAL</span>
+                <div class="stripes"></div>
+            </div>
+            <div class="window-content stats-content">
+                <div class="stat-block">
+                    <label>FOND UTMi</label>
+                    <div class="digital-display" id="balance-utmi">0.00 Ꞓ</div>
+                </div>
+                <div class="stat-block">
+                    <label>TAXE IA (PRCR)</label>
+                    <div class="digital-display">6.8%</div>
+                </div>
+                <div class="stat-block">
+                    <label>CIRCULARITÉ</label>
+                    <div class="progress-bar-mac"><div class="fill" style="width: 45%;"></div></div>
+                </div>
+                <div class="stat-block">
+                    <label>RUP GÉNÉRÉ</label>
+                    <div class="digital-display highlight">+750.00€</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- FENÊTRE BAS : CONSOLE LOGS -->
+        <footer class="mac-window console-window">
+            <div class="mac-title-bar">
+                <div class="close-box"></div>
+                <div class="stripes"></div>
+                <span class="title-text">TERMINAL DE L'ÎLE</span>
+                <div class="stripes"></div>
+            </div>
+            <div class="window-content log-content" id="log-output">
+                <div>>_ SYSTEM BOOT...</div>
+                <div>>_ KERNEL CVNU INITIALISÉ[cite: 2].</div>
+            </div>
+        </footer>
+
+    </main>
+
+<script src="js/core/CORE_SYSTEM_CVNU.js"></script>
+    <script src="js/core/utms_calculator.js"></script>
+    <script src="js/components/ModalSystem.js"></script>
+    <script src="js/components/TerminalModal.js"></script>
+    <script src="js/city_engine.js"></script>
+</body>
+</html>
